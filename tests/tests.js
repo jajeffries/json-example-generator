@@ -72,7 +72,7 @@ describe('Generator', function () {
 					expected = {
 						tags: []
 					};
-				assert.ok(_.isEqual(expected, example), "Got " + JSON.stringify(example));
+				assert.ok(_.isEqual(expected, example));
 			});
 		});
 	});
