@@ -85,16 +85,44 @@ describe('Generator', function () {
 			};
 			it('should generate example with different array default', function () {
 				var options = {
-					defaults: {
-						array: ['test']
-					}
-				}
+						defaults: {
+							array: ['test']
+						}
+					},
 					example = new Generator(exampleSchema, options).generate(),
 					expected = {
 						tags: ['test']
 					};
-				assert.ok(_.isEqual(expected, example));
+				assert.ok(_.isEqual(expected, example), JSON.stringify(example));
 			});
 		});
+
+		// describe('from schema with nested object', function () {
+		// 	var exampleSchema = {
+		// 		"$schema": "http://json-schema.org/draft-04/schema#",
+		// 		"title": "Product",
+		// 		"description": "Test data with number",
+		// 		"type": "object",
+		// 		"properties": {
+		// 			"tags": {
+		// 				"description": "embedded object",
+		// 				"type": "object"
+		// 				"properties"
+		// 			}
+		// 		}
+		// 	};
+		// 	it('should generate example with embeded object', function () {
+		// 		var options = {
+		// 				defaults: {
+		// 					array: ['test']
+		// 				}
+		// 			},
+		// 			example = new Generator(exampleSchema, options).generate(),
+		// 			expected = {
+		// 				tags: ['test']
+		// 			};
+		// 		assert.ok(_.isEqual(expected, example));
+		// 	});
+		// });
 	});
 });
