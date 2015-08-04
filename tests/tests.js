@@ -51,5 +51,29 @@ describe('Generator', function () {
 				assert.ok(_.isEqual(expected, example));
 			});
 		});
+
+		describe('from schema with array attribute type', function () {
+			var exampleSchema = {
+				"$schema": "http://json-schema.org/draft-04/schema#",
+				"title": "Product",
+				"description": "Test data with number",
+				"type": "object",
+				"properties": {
+					"tags": {
+						"description": "tags of the example",
+						"type": "array"
+					}
+				}
+			};
+			it('should generate example with number', function () {
+				console.log(Generator);
+
+				var example = new Generator(exampleSchema).generate(),
+					expected = {
+						tags: []
+					};
+				assert.ok(_.isEqual(expected, example), "Got " + JSON.stringify(example));
+			});
+		});
 	});
 });
