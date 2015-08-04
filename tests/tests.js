@@ -18,8 +18,6 @@ describe('Generator', function () {
 				}
 			};
 			it('should generate example with empty string', function () {
-				console.log(Generator);
-
 				var example = new Generator(exampleSchema).generate(),
 					expected = {
 						name: ""
@@ -42,8 +40,6 @@ describe('Generator', function () {
 				}
 			};
 			it('should generate example with number', function () {
-				console.log(Generator);
-
 				var example = new Generator(exampleSchema).generate(),
 					expected = {
 						id: 0
@@ -65,12 +61,37 @@ describe('Generator', function () {
 					}
 				}
 			};
-			it('should generate example with number', function () {
-				console.log(Generator);
-
+			it('should generate example with array', function () {
 				var example = new Generator(exampleSchema).generate(),
 					expected = {
 						tags: []
+					};
+				assert.ok(_.isEqual(expected, example));
+			});
+		});
+
+		describe('from schema with specified defaults', function () {
+			var exampleSchema = {
+				"$schema": "http://json-schema.org/draft-04/schema#",
+				"title": "Product",
+				"description": "Test data with number",
+				"type": "object",
+				"properties": {
+					"tags": {
+						"description": "tags of the example",
+						"type": "array"
+					}
+				}
+			};
+			it('should generate example with different array default', function () {
+				var options = {
+					defaults: {
+						array: ['test']
+					}
+				}
+					example = new Generator(exampleSchema, options).generate(),
+					expected = {
+						tags: ['test']
 					};
 				assert.ok(_.isEqual(expected, example));
 			});
