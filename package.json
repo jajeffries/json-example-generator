@@ -1,0 +1,17 @@
+{
+  "name": "json-example-generator",
+  "version": "0.0.1",
+  "description": "Generate example JSON from JSON schemas",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "underscore": "^1.8.3"
+  }
+}
