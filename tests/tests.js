@@ -28,28 +28,28 @@ describe('Generator', function () {
 			});
 		});
 
-		// describe('from schema with number attribute type', function () {
-		// 	var exampleSchema = {
-		// 		"$schema": "http://json-schema.org/draft-04/schema#",
-		// 		"title": "Product",
-		// 		"description": "Test data with number",
-		// 		"type": "object",
-		// 		"properties": {
-		// 			"id": {
-		// 				"description": "ID of the example",
-		// 				"type": "number"
-		// 			}
-		// 		}
-		// 	};
-		// 	it('should generate example with number', function () {
-		// 		console.log(Generator);
+		describe('from schema with number attribute type', function () {
+			var exampleSchema = {
+				"$schema": "http://json-schema.org/draft-04/schema#",
+				"title": "Product",
+				"description": "Test data with number",
+				"type": "object",
+				"properties": {
+					"id": {
+						"description": "ID of the example",
+						"type": "number"
+					}
+				}
+			};
+			it('should generate example with number', function () {
+				console.log(Generator);
 
-		// 		var example = new Generator(exampleSchema).generate(),
-		// 			expected = {
-		// 				id: 0
-		// 			};
-		// 		assert.ok(_.isEqual(expected, example));
-		// 	});
-		// });
+				var example = new Generator(exampleSchema).generate(),
+					expected = {
+						id: 0
+					};
+				assert.ok(_.isEqual(expected, example));
+			});
+		});
 	});
 });
