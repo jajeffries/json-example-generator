@@ -2,7 +2,7 @@
   "name": "json-example-generator",
   "version": "0.0.1",
   "description": "Generate example JSON from JSON schemas",
-  "main": "lib/index.js",
+  "main": "main.js",
   "directories": {
     "test": "tests"
   },

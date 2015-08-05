@@ -131,7 +131,7 @@ describe('Generator', function () {
 					expected = {
 						tags: "value1"
 					};
-				assert.ok(_.isEqual(expected, example), JSON.stringify(example));
+				assert.ok(_.isEqual(expected, example));
 			});
 		});
 
