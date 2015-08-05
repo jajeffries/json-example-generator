@@ -48,6 +48,28 @@ describe('Generator', function () {
 			});
 		});
 
+		describe('from schema with boolean attribute type', function () {
+			var exampleSchema = {
+				"$schema": "http://json-schema.org/draft-04/schema#",
+				"title": "Product",
+				"description": "Test data with boolean",
+				"type": "object",
+				"properties": {
+					"flag": {
+						"description": "Some flag in the example",
+						"type": "boolean"
+					}
+				}
+			};
+			it('should generate example with number', function () {
+				var example = new Generator(exampleSchema).generate(),
+					expected = {
+						flag: false
+					};
+				assert.ok(_.isEqual(expected, example));
+			});
+		});
+
 		describe('from schema with array attribute type', function () {
 			var exampleSchema = {
 				"$schema": "http://json-schema.org/draft-04/schema#",
