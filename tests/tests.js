@@ -48,6 +48,28 @@ describe('Generator', function () {
 			});
 		});
 
+		describe('from schema with integer attribute type', function () {
+			var exampleSchema = {
+				"$schema": "http://json-schema.org/draft-04/schema#",
+				"title": "Product",
+				"description": "Test data with integer",
+				"type": "object",
+				"properties": {
+					"id": {
+						"description": "ID of the example",
+						"type": "integer"
+					}
+				}
+			};
+			it('should generate example with integer', function () {
+				var example = new Generator(exampleSchema).generate(),
+					expected = {
+						id: 0
+					};
+				assert.ok(_.isEqual(expected, example));
+			});
+		});
+
 		describe('from schema with boolean attribute type', function () {
 			var exampleSchema = {
 				"$schema": "http://json-schema.org/draft-04/schema#",
@@ -61,7 +83,7 @@ describe('Generator', function () {
 					}
 				}
 			};
-			it('should generate example with number', function () {
+			it('should generate example with boolean', function () {
 				var example = new Generator(exampleSchema).generate(),
 					expected = {
 						flag: false
