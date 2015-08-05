@@ -114,6 +114,27 @@ describe('Generator', function () {
 			});
 		});
 
+		describe('from schema with enum attribute type', function () {
+			var exampleSchema = {
+				"$schema": "http://json-schema.org/draft-04/schema#",
+				"title": "Product",
+				"description": "Test data with number",
+				"type": "object",
+				"properties": {
+					"tags": {
+						"enum": ["value1", "value2"]
+					}
+				}
+			};
+			it('should generate example with enum', function () {
+				var example = new Generator(exampleSchema).generate(),
+					expected = {
+						tags: "value1"
+					};
+				assert.ok(_.isEqual(expected, example), JSON.stringify(example));
+			});
+		});
+
 		describe('from schema with specified defaults', function () {
 			var exampleSchema = {
 				"$schema": "http://json-schema.org/draft-04/schema#",
